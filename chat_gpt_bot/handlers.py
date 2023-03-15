@@ -1,7 +1,7 @@
 import openai
 from aiogram import types
 
-from chat_gpt_bot.config import (WORKS_CHATS, MODEL, TEMPERATURE, MAX_TOKENS,
+from chat_gpt_bot.config import (CHAT_ID, MODEL, TEMPERATURE, MAX_TOKENS,
                                  TOP_P, FREQUENCY_PENALTY, PRESENCE_PENALTY,
                                  AI_KEY)
 from chat_gpt_bot.dispatcher import dp
@@ -26,7 +26,7 @@ def get_ai_answer(question):
 
 @dp.message_handler(content_types=types.ContentTypes.TEXT)
 async def text_reply(message: types.Message):
-    if str(message.chat.id) in WORKS_CHATS:
+    if str(message.chat.id) in CHAT_ID:
         await message.answer(get_ai_answer(message.text))
     else:
         await message.answer('Invalid chat ID')
