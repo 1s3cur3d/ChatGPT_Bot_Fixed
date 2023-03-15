@@ -12,12 +12,7 @@ WEBHOOK_URL = f'{WEBHOOK_HOST}{WEBHOOK_PATH}'
 WEBAPP_HOST = '0.0.0.0'
 WEBAPP_PORT = os.getenv('PORT', default=8000)
 
-WORKS_CHATS = [
-    os.getenv('ACHAT_ID'),
-    os.getenv('VCHAT_ID'),
-    os.getenv('SCHAT_ID'),
-    os.getenv('MCHAT_ID'),
-]
+WORKS_CHATS = [os.getenv(CHAT_ID)]
 
 # AI
 AI_KEY = os.getenv('AI_KEY')
